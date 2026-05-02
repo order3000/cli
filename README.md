@@ -18,8 +18,8 @@ This is the recommended path. The Homebrew binary bundles the Node runtime,
 so you don't need to install Node yourself.
 
 ```sh
-# 1. Add the kolaveri-labs tap (one-time setup)
-brew tap kolaveri-labs/tap
+# 1. Add the order3000 tap (one-time setup)
+brew tap order3000/tap
 
 # 2. Install the CLI
 brew install order3000
