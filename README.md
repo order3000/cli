@@ -50,6 +50,38 @@ in macOS Keychain / Linux libsecret.
 
 ---
 
+## Shell completion (tab autocomplete)
+
+`order3000 completion <shell>` prints a completion script for your
+shell. Pipe it to your shell's completions directory once and tab
+autocomplete works on every `order3000 …` invocation thereafter.
+
+```sh
+# zsh — Homebrew on macOS
+order3000 completion zsh > "$(brew --prefix)/share/zsh/site-functions/_order3000"
+autoload -Uz compinit && compinit
+
+# zsh — anywhere else (any directory in $fpath works)
+order3000 completion zsh > /usr/local/share/zsh/site-functions/_order3000
+
+# bash
+order3000 completion bash > /usr/local/etc/bash_completion.d/order3000
+# or for the current session only:
+source <(order3000 completion bash)
+
+# fish
+order3000 completion fish > ~/.config/fish/completions/order3000.fish
+```
+
+After install, hit `<tab>` after `order3000 ` and you'll see `auth`,
+`articles`, `venues`, `locale`, etc. — drill into any group and tab
+again for its subcommands (`articles slug <tab>` → `get`, `set`).
+
+Re-run `order3000 completion <shell> > …` after upgrading the CLI when
+new top-level groups or major subcommands ship.
+
+---
+
 ## First run: `auth login`
 
 ```sh
