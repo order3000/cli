@@ -140,17 +140,20 @@ Force JSON anywhere with `--json`.
 
 ## Command surface
 
+`get` takes either a UUID **or** an accessor slug — the server resolves both
+(e.g. `order3000 events get sunday-brunch` or `order3000 events get <uuid>`).
+
 | Group | Commands |
 |---|---|
 | `auth` | `login`, `logout`, `list`, `use`, `whoami` |
 | `orders` | `getLatest`, `get`, `place`, `confirm` |
 | `baskets` | `get`, `add`, `remove`, `getTotals`, `abandon`, `setDeclaredReturns` |
-| `events` | `list`, `get`, `getByAccessor`, `place` |
-| `menus` | `get`, `getByAccessor`, `getBundles`, `getSubscriptions` |
-| `areas` | `list`, `getByAccessor`, `getAvailability`, `submitBookingRequest` |
+| `events` | `list`, `get`, `place` |
+| `menus` | `get`, `getBundles`, `getSubscriptions` |
+| `areas` | `list`, `get`, `getAvailability`, `submitBookingRequest` |
 | `reservations` | `make`, `get` |
 | `paymentIntents` | `create`, `createDelta`, `reduceDelta` |
-| `subscriptions` | `get`, `getByAccessor`, `subscribe`, `cancel`, `getCredits` |
+| `subscriptions` | `get`, `subscribe`, `cancel`, `getCredits` |
 | `teamOrders` | `create`, `get`, `join`, `submit`, `cancel`, `extendDeadline`, `setFulfillmentAt`, `setDiningLocation`, `setDiningTime`, `setOrderLeadSettled`, `autoExtendFulfillmentIfExpired`, `switchFulfillment`, `updateDeliveryAddress` |
 | `system` | `ping` |
 
