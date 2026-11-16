@@ -1,7 +1,7 @@
 # `order3000` — agent-friendly CLI for the order3000 platform
 
 A strict, schema-validated command-line interface backed by the
-[`order3000`](../order3000-nodejs) Node.js SDK. Every command is also a
+[`order3000`](../order3000-node-sdk) Node.js SDK. Every command is also a
 deterministically-shaped JSON contract suitable for agents (Claude, CI bots,
 internal scripts) to call without writing TypeScript.
 
@@ -192,11 +192,11 @@ pnpm --filter order3000 build
 pnpm --filter @order3000/cli build
 
 # Run the just-built binary
-node apps/order3000-cli/dist/cli.js --help
+node apps/order3000/cli/dist/cli.js --help
 
 # Or compile to a single-file native binary (this Mac)
 pnpm --filter @order3000/cli build:binaries darwin-arm64
-./apps/order3000-cli/dist/binaries/order3000-darwin-arm64 --help
+./apps/order3000/cli/dist/binaries/order3000-darwin-arm64 --help
 ```
 
 ---
@@ -209,6 +209,6 @@ Every command's input + output JSON Schema is committed under
 and the SDK's runtime is a build-time error, not a runtime surprise.
 
 The schemas themselves derive from the order3000 backend's `ts-rest`
-contracts (in `apps/order3000/src/app/api/openapi/contracts/`), which are
+contracts (in `apps/order3000/order3000/src/app/api/openapi/contracts/`), which are
 in turn derived from the Drizzle schema via `drizzle-zod`. There is one
 source of truth.
