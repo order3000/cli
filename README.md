@@ -50,6 +50,28 @@ in macOS Keychain / Linux libsecret.
 
 ---
 
+## From the checkout: always the code as it stands
+
+Homebrew and npm install a build, and a build is behind the checkout: a
+command added today is not in the binary of last week. Whoever works in the
+repository links the starter into a folder of the `PATH` once:
+
+```sh
+ln -s ~/Projects/kadal/apps/order3000/cli/bin/order3000.mjs /opt/homebrew/bin/order3000
+order3000 --version
+```
+
+From then on `order3000` runs `src/cli.ts` of that checkout — no build of
+the CLI, no release, nothing to upgrade. It needs the checkout installed
+(`pnpm install`) and the Node SDK it talks through built there
+(`libs/order3000/node-sdk`, as every dev server and lint run of the
+checkout needs it too).
+
+The starter is three lines (`bin/order3000.mjs`); the mechanism is
+`@kolaveri/dev-tools/cli-from-source`, shared with the `billionaire` CLI.
+
+---
+
 ## Shell completion (tab autocomplete)
 
 `order3000 completion <shell>` prints a completion script for your
